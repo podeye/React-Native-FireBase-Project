@@ -9,7 +9,7 @@ export const fetchProducts = () => {
   return async (dispatch, getState) => {
     const userId = getState().auth.userId;
     try {
-      const response = await fetch('https://react-shopping-app-a8cf3-default-rtdb.firebaseio.com/products.json');
+      const response = await fetch('');
       
       if(!response.ok){
         throw new Error('Something went wrong');
@@ -43,7 +43,7 @@ export const deleteProduct = productId => {
   return async (dispatch,getState) => {
   const token = getState().auth.token;
   const response = await fetch(
-    `https://react-shopping-app-a8cf3-default-rtdb.firebaseio.com/products/${productId}.json?auth=${token}`
+    ``
     , {
     method: 'DELETE',
   });
@@ -62,7 +62,7 @@ export const createProduct = (title, description, imageUrl, price) => {
     const token = getState().auth.token;
     const userId = getState().auth.userId;
     // here can execute any async function you want including http requests
-    const response = await fetch(`https://react-shopping-app-a8cf3-default-rtdb.firebaseio.com/products.json?auth=${token}`, {
+    const response = await fetch(``, {
       method: 'POST',
       headers:{
         'Content-Type':'application/json'
@@ -97,7 +97,7 @@ export const updateProduct = (id, title, description, imageUrl) => {
   return async (dispatch, getState) => {
     // Error checking .jon
     const token = getState().auth.token;
-    const response = await fetch(`https://react-shopping-app-a8cf3-default-rtdb.firebaseio.com/products/${id}.json?auth=${token}`, {
+    const response = await fetch(``, {
       method: 'PATCH',
       headers:{
         'Content-Type':'application/json'

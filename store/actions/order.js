@@ -9,7 +9,7 @@ export const fetchOrders = () => {
     const token = getState().auth.token;
     const userId = getState().auth.userId;
     try {
-      const response = await fetch(`https://react-shopping-app-a8cf3-default-rtdb.firebaseio.com/orders/${userId}.json?auth=${token}`);
+      const response = await fetch(``);
       
       if(!response.ok){
         throw new Error('Something went wrong');
@@ -39,7 +39,7 @@ export const addOrder = (cartItems, totalAmount) =>{
     const date = new Date();
     const token = getState().auth.token;
     const userId = getState().auth.userId;
-    const response = await fetch(`https://react-shopping-app-a8cf3-default-rtdb.firebaseio.com/orders/${userId}.json?auth=${token}`, {
+    const response = await fetch(``, {
       method:'POST',
       headers:{
         'Content-Type': 'application/json'
